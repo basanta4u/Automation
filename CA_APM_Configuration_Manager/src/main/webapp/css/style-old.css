@@ -1,0 +1,55 @@
+body {
+    font-family : arial;
+}
+/* .sidebar {
+    position : absolute;
+    top : 0;
+    left : 160px;;
+    transition : 100ms left;
+        height: 100px;
+} */
+#navigation-toggle {
+        position : absolute;
+        left : 320px;
+        background : aqua;
+        color : #428bca;
+        text-decoration : arial;
+        padding : 20px;
+        
+}
+.show {
+    left : 0;
+}
+.navigation {
+    list-style : none;
+    padding : 0;
+    margin : 0;
+}
+.navigation-items a {
+    display : block;
+   background : white;
+    color : #428bca;
+    line-height : 2em;
+    text-decoration : arial;
+    padding : 10px 30px;
+    width : 320px;
+
+}
+.navigation-items a:hover {
+    background-color : #222;
+}
+
+/*      div {  */
+/*             border: 1px solid #000000; */
+/*         } */
+        #divleft{
+            width: 80%;
+            float: right;
+            
+        }
+        #divright{
+             display: block; 
+            width: 20%;
+            float: left;
+
+        }

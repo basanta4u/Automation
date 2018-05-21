@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+<meta charset="UTF-8">
+<title>CA APM Configuration Manager</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script type="text/javascript" src="js/lib/angular.min.js"></script>
+<script type="text/javascript" src="js/lib/angular-resource.min.js"></script>
+<script type="text/javascript" src="js/lib/angular-route.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+<script type="text/javascript" src="js/service.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+</head>
+<body ng-controller='TodoListCtrl'>
+	<div id="divleft" ng-view></div>
+
+	<!-- <div class="container"> -->
+	<div id="divright" >
+		<table class="table">
+			<tr>
+				<th>
+					<h3 class="panel-title">
+						<strong> FILES LIST </strong>
+					</h3>
+				</th>
+			</tr>
+<!-- 			<td><input type="text" placeholder="Filter property"
+				ng-model="searching.file"></td> -->
+		</table>
+		<div id="sideNavContainer" layout="row" ng-cloak>
+         <md-sidenav md-component-id="left" class="md-sidenav-left">
+         <br>
+<a href="" ng-click="getdata('IntroscopeEnterpriseManager.properties')">INTROSCOPE EM PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('IntroscopeWebView.properties')">INTROSCOPE WV PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('APMEnterpriseManager.properties')">APM EM PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('Catalyst.properties')">CATALYST PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('Introscope_Enterprise_Manager.lax')">INTROSCOPE EM LAX</a><br><br>
+<a href="" ng-click="getdata('Introscope_WebView.lax')">INTROSCOPE WV LAX</a><br><br>
+<a href="" ng-click="getdata('ResourceMetricMap.properties')">RESOURCE METRIC MAP PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('tess-service-desk.properties')">TESS SERVICE DESK PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('tess-default.properties')">TESS DEFAULT PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('CEMHibernate.properties')">CEM HIBERNATE PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('CEMHibernate-dailyAggregation.properties')">CEM HIBERNATE DAILY AGGREGATION PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('CEMHibernate-defectAggregation.properties')">CEM HIBERNATE DEFECT AGGREGATION PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('teamcenter-status-mapping.properties')">TEAMCENTER STATUS MAPPING PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('CustomDBRecordTypes.properties')">CUSTOM DB RECORDTYPE PROPERTIES</a><br><br>
+<a href="" ng-click="getdata('log4j.properties')">LOG4J PROPERTIES</a><br><br>
+</md-sidenav>
+      </div>
+
+
+</body>
+</html>

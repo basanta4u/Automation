@@ -1,0 +1,38 @@
+body {
+  background-color: ghostwhite;
+ 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.graphcolumn {
+    float: left;
+    width: 50%;
+    padding: 1px;
+    height: 600px;
+}
+.chartContainer{
+    float: left;
+    width: 100%;
+    padding: 2px;
+
+}
+
+
+/* Clear floats after the columns */
+.graphrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
