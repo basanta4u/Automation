@@ -101,7 +101,6 @@ public class DBQuery  {
                 flag=true;
             }
             else return flag;
-
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -164,7 +163,7 @@ public class DBQuery  {
      
     
     public List<Result> getDXIDemoResult(int numberOfDays, int startRange, int endRange) {
-        String query = "SELECT EXETIME,RESPONE_TIME,RESPONE_TIME_FROM_AXA,NAME,RESULT from DXIRESPONSETIME,DXIVALIDATIONPOINT where DXIVALIDATIONPOINT.DXIVP_ID = DXIRESPONSETIME.DXIVP_ID AND DXIRESPONSETIME.DXIVP_ID BETWEEN "+startRange+" AND "+endRange+" AND EXETIME BETWEEN '"+getRangeDateTimeStamp(numberOfDays)+"' AND '"+getRangeDateTimeStamp(0)+"'" ;
+        String query = "SELECT EXETIME,RESPONE_TIME,RESPONE_TIME_FROM_AXA,NAME,RESULT from DXIRESPONSETIME,DXIVALIDATIONPOINT where DXIVALIDATIONPOINT.DXIVP_ID = DXIRESPONSETIME.DXIVP_ID AND DXIRESPONSETIME.DXIVP_ID BETWEEN "+startRange+" AND "+endRange+" AND EXETIME BETWEEN '"+getRangeDateTimeStamp(numberOfDays)+"' AND '"+getRangeDateTimeStamp(0)+"'  order by EXETIME  ASC" ;
         List<Result> list = new ArrayList<Result>();
         try {
             conn.getStatement(dcp);

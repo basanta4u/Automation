@@ -12,13 +12,20 @@ body {
     float: left;
     width: 50%;
     padding: 1px;
-    height: 600px;
+
 }
 .chartContainer{
     float: left;
     width: 100%;
     padding: 2px;
 
+}
+
+tr:nth-child(even) {
+    background-color: #c3c8f3;
+}
+th {
+    background-color: #e0e4df;
 }
 
 

@@ -11,12 +11,10 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.ca.apm.saas.pojo.MinMaxAvg;
+import com.ca.apm.saas.pojo.*;
 import todo.model.PropertyPoJo;
 
 import com.ca.apm.saas.commom.database.DBQuery;
-import com.ca.apm.saas.pojo.Result;
-import com.ca.apm.saas.pojo.ResultGroup;
 
 /**
  * @author Basanta Dwibedy
@@ -53,24 +51,64 @@ public class TodoResource {
 	}
 
 	@POST
-	@Path("/post")
-	@Consumes("application/json")
-	public Response createProductInJSON(String productName) {
+	@Path("/postValidationPoint")
+	@Consumes({MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response createProductInJSON(Product product) {
 
-		String name = productName;
-		DBQuery dbQuery=new DBQuery();
+		System.out.println("createProductInJSON input name:["+product.getName()+"]");
+		DBQuery dbQuery=null;
+		try {
+			dbQuery=new DBQuery();
+			 if(dbQuery.insertValidationPoint(product.getName())){
+				 System.out.println("Data inserted successfully.");
+				 return Response.status(201).entity("Operation Success !").build();
+			 }
+	 	} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Response.status(403).entity(product).build();
+
+	}
+
+	@POST
+	@Path("/postResultList")
+	@Consumes({MediaType.APPLICATION_JSON})
+	public Response postResultList(TestResultList result) {
+		List<TestResult> testResults=result.getTestResults();
+		System.out.println("createProductInJSON input name:["+result+"]");
+		DBQuery dbQuery=null;
 		try {
 
-			boolean flag=dbQuery.insertValidationPoint(name);
-			System.out.println("Data inserted status::"+flag);
-			if(flag)
-				return Response.status(201).entity(name).build();
+			dbQuery=new DBQuery();
+			dbQuery.writeResult(covertResultList(testResults));
+		//	if(dbQuery.insertValidationPoint(product.getName())){
 
+				System.out.println("Data inserted successfully.");
+				return Response.status(201).entity("Operation Success !").build();
+			//}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return Response.status(403).entity(name).build();
+		return Response.status(403).entity("Fail to insert data into table").build();
 
+	}
+
+	private ArrayList<Result> covertResultList(List<TestResult> testResults) {
+		ArrayList<Result> tmpResult=new ArrayList<Result>();
+
+		Iterator<TestResult> itr = testResults.iterator();
+
+		while (itr.hasNext()) {
+			TestResult element = (TestResult) itr.next();
+			Result rs=new Result();
+			rs.setResult(element.isResult());
+			rs.setResponseTime(element.getResponseTime());
+			rs.setValidationPoint(element.getValidationPoint());
+			tmpResult.add(rs);
+		}
+
+		return tmpResult;
 	}
 	
 	/*@GET

@@ -18,6 +18,8 @@
 
 //2nd chart
  //alert("Hi");
+
+ var hostname= location.hostname;
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
   var color = '#';
@@ -29,7 +31,7 @@ function getRandomColor() {
 
  
  var jsonData = $.ajax({
-	 url: "http://localhost:8080/AngularJSRestful/rest/todos/getResultInGroup/7/1/19",
+	 url: "http://"+hostname+":8080/AngularJSRestful/rest/todos/getResultInGroup/7/1/19",
     //url: 'https://api.myjson.com/bins/qifk7',
     // url: "https://api.myjson.com/bins/apiun" ,
     // url: "https://api.myjson.com/bins/1fmyzu",
@@ -107,7 +109,7 @@ var jsonData1 = $.ajax({
 	 //url: "http://localhost:8080/AngularJSRestful/rest/todos/getAxASysResultInGroup/7",
     //url: 'https://api.myjson.com/bins/qifk7',
     // url: "https://api.myjson.com/bins/apiun" ,
-     url: "http://localhost:8080/AngularJSRestful/rest/todos/getAxASysResultInGroup/7",
+     url: "http://"+hostname+":8080/AngularJSRestful/rest/todos/getAxASysResultInGroup/7",
    dataType: 'json',
 
    success: function(response)
@@ -179,7 +181,7 @@ new Chart(document.getElementById("line-chart2"),  mydata);
 });
 
 var tablejsonData = $.ajax({
-	url: "http://localhost:8080/AngularJSRestful/rest/todos/getMinMaxAvgResult/2/5",
+	url: "http://"+hostname+":8080/AngularJSRestful/rest/todos/getMinMaxAvgResult/2/5",
    dataType: 'json',
    type: "GET",
 
@@ -211,7 +213,7 @@ var tablejsonData = $.ajax({
 });
 
 var tablejsonData = $.ajax({
-	url: "http://localhost:8080/AngularJSRestful/rest/todos/getMinMaxAvgResult/10/19",
+	url: "http://"+hostname+":8080/AngularJSRestful/rest/todos/getMinMaxAvgResult/10/19",
    dataType: 'json',
    type: "GET",
 
@@ -241,3 +243,9 @@ var tablejsonData = $.ajax({
    $('#tableccn1').html(output);
         }
 });
+
+$(document).ready(function()
+    {
+        $("#tableccn").tablesorter();
+    }
+);
